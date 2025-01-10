@@ -11,6 +11,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from pypdf.errors import PdfReadError
 from openai import AuthenticationError
+from openai.error import InvalidRequestError
 
 # Adicionar o nome do aplicativo
 st.subheader("Q&A com IA - PLN usando LangChain")
