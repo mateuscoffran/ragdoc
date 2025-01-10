@@ -27,7 +27,7 @@ openaikey = st.text_input("Enter your OpenAI API Key", type='password')
 prompt = st.text_area("Enter your questions", height=160)
 run_button = st.button("Run!")
 
-select_k = st.slider("Number of relevant chunks", min_value=1, max_value=5, value=2)
+select_k = st.slider("Number of relevant chunks", min_value=1, max_value=3, value=2)
 select_chain_type = st.radio("Chain type", ['stuff', 'map_reduce', "refine", "map_rerank"])
 
 # Função para carregar documentos
@@ -53,7 +53,7 @@ def qa(file_path, file_type, query, chain_type, k):
             return None
         
         # split the documents into chunks
-        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+        text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=0)
         texts = text_splitter.split_documents(documents)
         
         # select which embeddings we want to use
