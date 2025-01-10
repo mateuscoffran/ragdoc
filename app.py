@@ -11,7 +11,6 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from pypdf.errors import PdfReadError
 from openai import AuthenticationError
-from openai.error import InvalidRequestError
 
 # Adicionar o nome do aplicativo
 st.subheader("Q&A com IA - PLN usando LangChain")
@@ -75,8 +74,8 @@ def qa(file_path, file_type, query, chain_type, k):
     except AuthenticationError as e:
         st.error(f"Authentication error: {e}")
         return None
-    except InvalidRequestError as e:
-        st.error(f"Invalid request error: {e}")
+    except Exception as e:
+        st.error(f"An unexpected error occurred: {e}")
         return None
 
 # Função para exibir o resultado no Streamlit
