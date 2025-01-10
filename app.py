@@ -11,6 +11,12 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from pypdf.errors import PdfReadError
 from openai import AuthenticationError
+import sqlite3
+import sys
+
+# Verifica a versão do SQLite
+if sqlite3.sqlite_version_info < (3, 35, 0):
+    sys.exit(f"SQLite versão {sqlite3.sqlite_version} encontrada. ChromaDB requer SQLite >= 3.35.0.")
 
 # Adicionar o nome do aplicativo
 st.subheader("Q&A com IA - PLN usando LangChain")
