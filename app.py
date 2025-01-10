@@ -3,8 +3,6 @@ import tempfile
 import pandas as pd
 from PIL import Image
 import streamlit as st
-import langchain
-import langchain.chains
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import PyPDFLoader, TextLoader
