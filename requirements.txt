@@ -1,0 +1,9 @@
+langchain
+openai
+chromadb
+pypdf
+streamlit
+tiktoken
+pytesseract
+pillow
+python-docx
