@@ -7,3 +7,4 @@ tiktoken
 pytesseract
 pillow
 python-docx
+langchain-community
