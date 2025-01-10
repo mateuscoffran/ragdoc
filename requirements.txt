@@ -9,3 +9,4 @@ pillow
 python-docx
 langchain-community
 pandas
+pysqlite3-binary>=0.4.6
