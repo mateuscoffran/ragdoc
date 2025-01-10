@@ -2,7 +2,6 @@ import os
 import tempfile
 import pandas as pd
 from PIL import Image
-import docx
 import streamlit as st
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -40,12 +39,6 @@ def load_document(file_path, file_type):
     elif file_type == 'text/csv':
         df = pd.read_csv(file_path)
         return [{"page_content": df.to_string()}]
-    elif file_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-        doc = docx.Document(file_path)
-        full_text = []
-        for para in doc.paragraphs:
-            full_text.append(para.text)
-        return [{"page_content": "\n".join(full_text)}]
     else:
         st.error("Unsupported file type.")
         return None
