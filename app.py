@@ -1,7 +1,6 @@
 import os
 import tempfile
 import pandas as pd
-import pytesseract
 from PIL import Image
 import docx
 import streamlit as st
@@ -47,9 +46,6 @@ def load_document(file_path, file_type):
         for para in doc.paragraphs:
             full_text.append(para.text)
         return [{"page_content": "\n".join(full_text)}]
-    elif file_type in ['image/jpeg', 'image/png']:
-        text = pytesseract.image_to_string(Image.open(file_path))
-        return [{"page_content": text}]
     else:
         st.error("Unsupported file type.")
         return None
