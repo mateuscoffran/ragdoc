@@ -60,7 +60,7 @@ def qa(file_path, file_type, query, chain_type, k):
         embeddings = OpenAIEmbeddings()
         
         # create the vectorestore to use as the index
-        db = Chroma.from_documents(texts, embeddings)
+        db = Chroma.from_documents(texts, embeddings, persist_directory="chroma_storage")
         
         # expose this index in a retriever interface
         retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": k})
