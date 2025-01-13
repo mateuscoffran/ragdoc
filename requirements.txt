@@ -10,4 +10,4 @@ python-docx
 langchain-community
 pandas
 pysqlite3-binary>=0.4.6
-chromadb==0.3.28
+chromadb>=0.3.26
